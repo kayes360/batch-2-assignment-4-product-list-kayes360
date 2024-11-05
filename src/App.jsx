@@ -1,14 +1,17 @@
-
+import Footer from "./Section/Footer";
+import Header from "./Section/Header";
+import Hero from "./Section/Hero";
+import ProductList from "./Section/ProductList";
 
 function App() {
-
   return (
     <>
-      <h1
-        className="text-3xl text-center text-red-700"
-      >Welcome to Vite with TailwindCSS and React</h1>
+      <Header />
+      <ProductList /> 
+      <Hero /> 
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
