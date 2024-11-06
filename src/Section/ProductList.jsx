@@ -1,16 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import ProductCard from "../Components/ProductCard";
 import ProductCardSkeleton from "../Components/ProductCardSkeleton";
-import ProductListModification from "../Components/ProductListModification"; 
+import ProductListModification from "../Components/ProductListModification";
 import { ProductContext } from "../Context/ProductContext";
 
 export default function ProductList() {
-  //get all products - https://fakestoreapi.com/products
-  // get all category - 'https://fakestoreapi.com/products/categories
-  //get all by category - 'https://fakestoreapi.com/products/category/jewelery' 
-  //sort by asc - 'https://fakestoreapi.com/products?sort=asc'
-  //sort by desc - 'https://fakestoreapi.com/products?sort=desc'
-  const { productsData, error, loading } = useContext(ProductContext);  
+  const { productsData, error, loading } = useContext(ProductContext);
   let content;
 
   if (error) {
@@ -19,8 +14,7 @@ export default function ProductList() {
         Error fetching Product data {error.message}
       </p>
     );
-  }
-  else if (loading) {
+  } else if (loading) {
     content = (
       <>
         <ProductCardSkeleton />
@@ -30,20 +24,15 @@ export default function ProductList() {
         <ProductCardSkeleton />
       </>
     );
-   
+  } else if (productsData.length === 0) {
+    content = (
+      <p className="mt-4 text-xl text-gray-500 text-center">No Product Found</p>
+    );
+  } else if (productsData.length > 0) {
+    content = productsData.map((productData) => (
+      <ProductCard key={productData.id} productData={productData} />
+    ));
   }
-  else if (productsData.length === 0) {
-      content = (
-        <p className="mt-4 text-xl text-gray-500 text-center">
-          No Product Found
-        </p>
-      );
-    }
-   else if (productsData.length > 0) {
-      content =  (
-        productsData.map((productData) => <ProductCard key={productData.id} productData={productData}/>)
-      )
-    }
 
   return (
     <div>

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../Context/ProductContext'
 
 export default function Cart() {
+
+  const {cartItems} = useContext(CartContext)
   return (
     // {/* Cart */}
     <div className="flow-root">
@@ -20,7 +23,7 @@ export default function Cart() {
         />
       </svg>
       <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-        0
+        {cartItems.length}
       </span>
       <span className="sr-only">items in cart, view bag</span>
     </a>
