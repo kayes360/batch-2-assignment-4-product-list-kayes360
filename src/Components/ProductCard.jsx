@@ -18,7 +18,7 @@ export default function ProductCard({ productData }) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col justify-between">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80">
         <img
           src={image}
@@ -34,7 +34,7 @@ export default function ProductCard({ productData }) {
         <p className="text-sm font-medium text-gray-900">${price}</p>
       </div>
       {/* Button */}
-      <div className="cursor-pointer rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 ring-1   hover:ring-1 ring-slate-700/10 hover:bg-slate-50 hover:text-slate-900 items-center text-center mb-3 mx-3 flex-1">
+      <div className="cursor-pointer rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 ring-1   hover:ring-1 ring-slate-700/10 hover:bg-slate-50 hover:text-slate-900 items-center text-center   mx-3  ">
         <div className="flex px-3 py-2 justify-center" onClick={handleCart}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
